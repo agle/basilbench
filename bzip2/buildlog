@@ -1,0 +1,6 @@
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh aarch64-unknown-linux-gnu-gcc  bzip2.c  -O2  -o bzip2
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh aarch64-unknown-linux-gnu-readelf -s -r -W bzip2 > bzip2.relf
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh ddisasm bzip2 --ir bzip2.gtirb
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh gtirb-semantics  bzip2.gtirb bzip2.gts
+Lifting
+Successfully lifted 15119 instructions in 35.376405 sec (35.354047 user time) (0 failure: 0 unique opcodes) (0.000000 cache hit rate)
