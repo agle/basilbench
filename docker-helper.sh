@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -ue
 
-export DOCKER_FLAKE="$(cat docker-flake)"
 
 if [[ -z "${GIT_ROOT:-}" ]] && command -v git &>/dev/null; then
   GIT_ROOT=$(git rev-parse --show-toplevel)
@@ -14,12 +13,14 @@ DIR=$(realpath --relative-to "$GIT_ROOT" .)
 : ${DOCKER_USER:=root}
 : ${DOCKER_IMAGE:=ghcr.io/uq-pac/basil-tools-docker}
 
+
 if [[ $# -lt 1 ]] || [[ "$1" == --help ]]; then
   echo "usage: $(basename $0) (pull | push | build | start | stop | shell | hash | env [--unset] | COMMAND...)"
   ! [[ $# -lt 1 ]]
   exit
 fi
 
+export DOCKER_FLAKE="$(cat $GIT_ROOT/docker-flake)"
 DOCKER_CMD="$(realpath $0)"
 
 if [[ -z "${DOCKER_FLAKE:-}" ]] && [[ -r "$(dirname $DOCKER_CMD)/docker-flake.txt" ]]; then
