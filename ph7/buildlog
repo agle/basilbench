@@ -1,0 +1,24 @@
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh aarch64-unknown-linux-gnu-gcc ph7.c ph7_intro.c  -O2  -o ph7
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/ph7 container-flake-66d6-569afdf7 /usr/bin/_exec aarch64-unknown-linux-gnu-gcc ph7.c ph7_intro.c -O2 -o ph7
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh aarch64-unknown-linux-gnu-readelf -s -r -W ph7 > ph7.relf
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/ph7 container-flake-66d6-569afdf7 /usr/bin/_exec aarch64-unknown-linux-gnu-readelf -s -r -W ph7
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh ddisasm ph7 --ir ph7.gtirb
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/ph7 container-flake-66d6-569afdf7 /usr/bin/_exec ddisasm ph7 --ir ph7.gtirb
+Building the initial gtirb representation [   3ms]
+Processing module: ph7
+    disassembly              load [ 282ms]    compute [   25s]  transform [ 278ms]
+    SCC analysis                              compute [  50ms]  transform [   0ms]
+    no return analysis       load [  36ms]    compute [ 103ms]  transform [   1ms]
+    function inference       load [  46ms]    compute [  77ms]  transform [  15ms]
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh gtirb-semantics --offline ph7.gtirb ph7.gts
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/ph7 container-flake-66d6-569afdf7 /usr/bin/_exec gtirb-semantics --offline ph7.gtirb ph7.gts
+Lifting
+error during aslp disassembly (unsupported opcode 0xd503201f, bytes 1F 20 03 D5) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd4207d00, bytes 00 7D 20 D4) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd53b440b, bytes 0B 44 3B D5) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd53b4400, bytes 00 44 3B D5) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd53b4409, bytes 09 44 3B D5) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd53b4402, bytes 02 44 3B D5) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd53b4421, bytes 21 44 3B D5) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd53b4420, bytes 20 44 3B D5) :: Failure("unsupported")
+Successfully lifted 92195 instructions in 2.119883 sec (2.117083 user time) (1343 failure: 8 unique opcodes)
