@@ -36,7 +36,7 @@ make "$@" -f - << 'EOF'
 CC ?= aarch64-linux-gnu-gcc
 DDISASM ?= ddisasm
 READELF ?= readelf
-GTIRBSEM ?= gtirb_semantics
+GTIRB_SEMANTICS ?= gtirb_semantics
 BAP ?= bap
 
 .PHONY=all clean
@@ -52,7 +52,7 @@ $(BIN_NAME).relf: $(BIN_NAME)
 	$(READELF) -s -r -W $(BIN_NAME) > $(BIN_NAME).relf
 
 $(BIN_NAME).gts: $(BIN_NAME).gtirb
-	$(GTIRBSEM) $(GTIRBSEM_FLAGS) $(BIN_NAME).gtirb $(BIN_NAME).gts
+	$(GTIRB_SEMANTICS) $(GTIRBSEM_FLAGS) $(BIN_NAME).gtirb $(BIN_NAME).gts
 
 $(BIN_NAME).gtirb: $(BIN_NAME)
 	$(DDISASM) $(BIN_NAME) --ir $(BIN_NAME).gtirb
