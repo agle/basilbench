@@ -9,6 +9,7 @@ taken from various sources, e.g. https://people.csail.mit.edu/smcc/projects/sing
     gzip/gzip.c                       1133           2142           5331
     bzip2/bzip2.c                     1094            810           5094
     cntlm                             1253           1780           6372
+    lua                               3282           3873          17529
     ph7                                153          20110          42621
     oggenc                            6746           3345          48322
     sqlite                           19099          98755         193562

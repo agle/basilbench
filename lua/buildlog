@@ -1,0 +1,20 @@
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh aarch64-unknown-linux-gnu-gcc lua-5.4.8/src/lapi.c lua-5.4.8/src/lauxlib.c lua-5.4.8/src/lbaselib.c lua-5.4.8/src/lcode.c lua-5.4.8/src/lcorolib.c lua-5.4.8/src/lctype.c lua-5.4.8/src/ldblib.c lua-5.4.8/src/ldebug.c lua-5.4.8/src/ldo.c lua-5.4.8/src/ldump.c lua-5.4.8/src/lfunc.c lua-5.4.8/src/lgc.c lua-5.4.8/src/linit.c lua-5.4.8/src/liolib.c lua-5.4.8/src/llex.c lua-5.4.8/src/lmathlib.c lua-5.4.8/src/lmem.c lua-5.4.8/src/loadlib.c lua-5.4.8/src/lobject.c lua-5.4.8/src/lopcodes.c lua-5.4.8/src/loslib.c lua-5.4.8/src/lparser.c lua-5.4.8/src/lstate.c lua-5.4.8/src/lstring.c lua-5.4.8/src/lstrlib.c lua-5.4.8/src/ltable.c lua-5.4.8/src/ltablib.c lua-5.4.8/src/ltm.c lua-5.4.8/src/lundump.c lua-5.4.8/src/lutf8lib.c lua-5.4.8/src/lvm.c lua-5.4.8/src/lzio.c lua-5.4.8/src/lua.c  -O2 -lm  -o lua
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/lua container-flake-66d6-569afdf7 /usr/bin/_exec aarch64-unknown-linux-gnu-gcc lua-5.4.8/src/lapi.c lua-5.4.8/src/lauxlib.c lua-5.4.8/src/lbaselib.c lua-5.4.8/src/lcode.c lua-5.4.8/src/lcorolib.c lua-5.4.8/src/lctype.c lua-5.4.8/src/ldblib.c lua-5.4.8/src/ldebug.c lua-5.4.8/src/ldo.c lua-5.4.8/src/ldump.c lua-5.4.8/src/lfunc.c lua-5.4.8/src/lgc.c lua-5.4.8/src/linit.c lua-5.4.8/src/liolib.c lua-5.4.8/src/llex.c lua-5.4.8/src/lmathlib.c lua-5.4.8/src/lmem.c lua-5.4.8/src/loadlib.c lua-5.4.8/src/lobject.c lua-5.4.8/src/lopcodes.c lua-5.4.8/src/loslib.c lua-5.4.8/src/lparser.c lua-5.4.8/src/lstate.c lua-5.4.8/src/lstring.c lua-5.4.8/src/lstrlib.c lua-5.4.8/src/ltable.c lua-5.4.8/src/ltablib.c lua-5.4.8/src/ltm.c lua-5.4.8/src/lundump.c lua-5.4.8/src/lutf8lib.c lua-5.4.8/src/lvm.c lua-5.4.8/src/lzio.c lua-5.4.8/src/lua.c -O2 -lm -o lua
+/nix/store/dk71x37ssqb5py8pl88qx550vrs5m1ds-aarch64-unknown-linux-gnu-binutils-2.43.1/bin/aarch64-unknown-linux-gnu-ld: /build/ccY7HehQ.o: in function `os_tmpname':
+loslib.c:(.text+0x424): warning: the use of `tmpnam' is dangerous, better use `mkstemp'
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh aarch64-unknown-linux-gnu-readelf -s -r -W lua > lua.relf
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/lua container-flake-66d6-569afdf7 /usr/bin/_exec aarch64-unknown-linux-gnu-readelf -s -r -W lua
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh ddisasm lua --ir lua.gtirb
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/lua container-flake-66d6-569afdf7 /usr/bin/_exec ddisasm lua --ir lua.gtirb
+Building the initial gtirb representation [   2ms]
+Processing module: lua
+    disassembly              load [ 132ms]    compute [    2s]  transform [  93ms]
+    SCC analysis                              compute [  12ms]  transform [   0ms]
+    no return analysis       load [  12ms]    compute [ 200ms]  transform [   0ms]
+    function inference       load [  17ms]    compute [  26ms]  transform [   5ms]
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh gtirb-semantics --offline lua.gtirb lua.gts
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/lua container-flake-66d6-569afdf7 /usr/bin/_exec gtirb-semantics --offline lua.gtirb lua.gts
+Lifting
+error during aslp disassembly (unsupported opcode 0xd503201f, bytes 1F 20 03 D5) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd4207d00, bytes 00 7D 20 D4) :: Failure("unsupported")
+Successfully lifted 44376 instructions in 0.932651 sec (0.931620 user time) (784 failure: 2 unique opcodes)
