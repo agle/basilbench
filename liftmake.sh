@@ -1,6 +1,5 @@
 #!/bin/bash
 
-CFILE_NAME=""
 
 while getopts "b:c:" o; do
 case "${o}" in
