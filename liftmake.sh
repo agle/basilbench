@@ -54,7 +54,9 @@ $(BIN_NAME).gts: $(BIN_NAME).gtirb
 	$(GTIRB_SEMANTICS) $(GTIRBSEM_FLAGS) $(BIN_NAME).gtirb $(BIN_NAME).gts
 
 $(BIN_NAME).gtirb: $(BIN_NAME)
-	$(DDISASM) $(BIN_NAME) --ir $(BIN_NAME).gtirb
+	$(DDISASM) $(BIN_NAME) --ir $(BIN_NAME).tempgtirb
+	$(PROTO_JSON) --idem=proto -s8 $(BIN_NAME).tempgtirb $(BIN_NAME).gtirb  # normalises protobuffer encoding
+	rm $(BIN_NAME).tempgtirb
 
 clean:
 	rm -f $(BIN_NAME).adt $(BIN_NAME).relf $(BIN_NAME).gts $(BIN_NAME)
