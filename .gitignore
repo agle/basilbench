@@ -1,3 +1,2 @@
 **/*.out
-oggenc/oggenc
-oggenc/oggenc.gtirb
+**/*.bir
