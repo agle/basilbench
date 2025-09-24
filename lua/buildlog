@@ -1,1 +1,19 @@
-make: Nothing to be done for 'all'.
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh aarch64-unknown-linux-gnu-readelf -s -r -W lua > lua.relf
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/lua container-flake-66d6-569afdf7 /usr/bin/_exec aarch64-unknown-linux-gnu-readelf -s -r -W lua
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh ddisasm lua --ir lua.tempgtirb
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/lua container-flake-66d6-569afdf7 /usr/bin/_exec ddisasm lua --ir lua.tempgtirb
+Building the initial gtirb representation [   2ms]
+Processing module: lua
+    disassembly              load [ 122ms]    compute [    2s]  transform [  86ms]
+    SCC analysis                              compute [  11ms]  transform [   0ms]
+    no return analysis       load [  12ms]    compute [ 192ms]  transform [   0ms]
+    function inference       load [  15ms]    compute [  25ms]  transform [   5ms]
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh proto-json.py --idem=proto -s8 lua.tempgtirb lua.gtirb  # normalises protobuffer encoding
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/lua container-flake-66d6-569afdf7 /usr/bin/_exec proto-json.py --idem=proto -s8 lua.tempgtirb lua.gtirb
+rm lua.tempgtirb
+/home/am/Documents/programming/2024/tvbins/docker-helper.sh gtirb-semantics --offline lua.gtirb lua.gts
++ exec podman exec --user root -w /home/am/Documents/programming/2024/tvbins/lua container-flake-66d6-569afdf7 /usr/bin/_exec gtirb-semantics --offline lua.gtirb lua.gts
+Lifting
+error during aslp disassembly (unsupported opcode 0xd503201f, bytes 1F 20 03 D5) :: Failure("unsupported")
+error during aslp disassembly (unsupported opcode 0xd4207d00, bytes 00 7D 20 D4) :: Failure("unsupported")
+Successfully lifted 44376 instructions in 0.869591 sec (0.868883 user time) (784 failure: 2 unique opcodes)
