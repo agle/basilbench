@@ -2,6 +2,7 @@
 #!/usr/bin/bash
 
 
+export GTIRBSEM_FLAGS="--offline"
 eval $(../docker-helper.sh env)
 export CFLAGS="$CFLAGS -O2 -lm"
 export GTIRBSEM_FLAGS="--offline"
