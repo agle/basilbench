@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 eval $(../docker-helper.sh env)
-export GTIRBSEM_FLAGS="--offline"
+export GTIRBSEM_FLAGS=""
 export CC="$GCC"
 export CFLAGS="$CFLAGS -O2"
 ../liftmake.sh -c gzip.c

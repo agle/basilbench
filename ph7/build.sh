@@ -1,10 +1,9 @@
 #!/usr/bin/bash
 
 eval $(../docker-helper.sh env)
-export GTIRBSEM_FLAGS="--offline"
+export GTIRBSEM_FLAGS=""
 export CC="$GCC"
 export CFLAGS="$CFLAGS -O2 -fno-plt"
-export GTIRBSEM_FLAGS="--offline"
 CFILE_NAME="ph7.c ph7_intro.c" ../liftmake.sh -b ph7 2>&1 | tee buildlog
 
 

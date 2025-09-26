@@ -2,7 +2,7 @@
 
 eval $(../docker-helper.sh env)
 export CFLAGS="$CFLAGS -O2 -lm"
-export GTIRBSEM_FLAGS="--offline"
+export GTIRBSEM_FLAGS=""
 ../liftmake.sh -c oggenc.c
 
 
