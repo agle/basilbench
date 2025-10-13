@@ -87,7 +87,7 @@ elif [[ "$1" == build ]]; then
 elif [[ "$1" == start ]]; then
   # starts an instance of the docker image.
   set -x
-  exec $DOCKER run $DOCKER_PLATFORM -v"$GIT_ROOT:$GIT_ROOT" --rm -td --user $DOCKER_USER --name $unique_container $unique_image
+  exec $DOCKER run $DOCKER_PLATFORM -v"$GIT_ROOT:$GIT_ROOT:z" --rm -td --user $DOCKER_USER --name $unique_container $unique_image
 
 elif [[ "$1" == stop ]]; then
   # stops the instance of the docker image.
